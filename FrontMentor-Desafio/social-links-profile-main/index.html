@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Adriano Pereira | Social links profile</title>
+</head>
+
+<body>
+  <main>
+    <img src="assets/images/image.png" alt="Foto de perfil de Adriano Pereira, desenvolvedor front-end">
+    <h2>Adriano Pereira</h2>
+    <h3>Belo Horizonte, Minas Gerais</h3>
+    <p class="texto">“Front-end developer and reader always seeking knowledge”</p>
+
+    <p class="link"><a href="https://github.com/adrianobeaga?tab=repositories" aria-label="GitHub de Adriano Pereira">GitHub</a></p>
+    <p class="link"><a href="https://www.frontendmentor.io/" aria-label="Frontend Mentor de Adriano Pereira">Frontend Mentor</a></p>
+    <p class="link"><a href="https://www.linkedin.com/in/estudoadriano/" aria-label="LinkedIn de Adriano Pereira">LinkedIn</a></p>
+
+    <p class="link">
+      <a href="#" id="email-link" aria-label="Clique para copiar o e-mail">E-mail</a>
+    </p>
+  </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-btn">&times;</span>
+      <p>E-mail copiado para a área de transferência!</p>
+    </div>
+  </div>
+
+<script>
+
+  document.getElementById('email-link').addEventListener('click', function(event) {
+    event.preventDefault(); 
+    const email = 'estudoadriano@gmail.com'; 
+
+
+    navigator.clipboard.writeText(email).then(function() {
+      showModal(); // Exibe o modal
+    }).catch(function(error) {
+      alert('Erro ao copiar o e-mail: ' + error);
+    });
+  });
+
+  
+  function showModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'flex'; 
+    setTimeout(function() {
+      modal.style.display = 'none'; 
+    },1500); 
+  }
+
+
+  document.getElementById('close-btn').addEventListener('click', function() {
+    document.getElementById('modal').style.display = 'none';
+  });
+
+
+  window.addEventListener('click', function(event) {
+    if (event.target == document.getElementById('modal')) {
+      document.getElementById('modal').style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+
+</html>
